@@ -44,19 +44,10 @@ namespace 考核題目_4A2B
                     //判斷1A2B的雙迴圈
                     for (int i = 0; i < 4; i++)
                     {
+                        if (ans[i] == nums[i]) { Asum++; }
                         for (int j = 0; j < 4; j++)
                         {
-                            if (ans[i] == nums[j]) //數字是否有相同
-                            {
-                                if (i == j) //若在同個位置則結束內迴圈
-                                { 
-                                    Asum++;
-                                    Bsum -= j;
-                                    break; 
-                                }
-                                else { Bsum++; }
-                                
-                            }
+                            if (ans[i] == nums[j] && i != j) { Bsum++; }   
                         }
                     }
                     Console.WriteLine($"判定結果是{Asum}A{Bsum}B");
